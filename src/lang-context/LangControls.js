@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import LanguageContext from './LanguageContext';
 
 class LangControls extends Component {
+
+    static defaultProps = {
+        onSetLang: () => {}
+    }
+
     render() { 
         return (
             <LanguageContext.Consumer>
@@ -10,6 +15,7 @@ class LangControls extends Component {
                     <>
                         <button
                             disabled={value.lang === 'en-GB'}
+                            onClick={() => this.props.onSetLang('en-GB')}
                         >
                             British{' '}
                             <span role='img' aria-label='en-GB'>🇬🇧</span>
@@ -17,6 +23,7 @@ class LangControls extends Component {
                         {' '}
                         <button
                             disabled={value.lang === 'en-US'}
+                            onClick={() => this.props.onSetLang('en-US')}
                         >
                             American{' '}
                             <span role='img' aria-label='en-US'>🇺🇸</span>
@@ -24,6 +31,7 @@ class LangControls extends Component {
                         {' '}
                         <button
                             disabled={value.lang === 'ko'}
+                            onClick={() => this.props.onSetLang('ko')}
                         >
                             Korean{' '}
                             <span role='img' aria-label='ko'>🇰🇷</span>
